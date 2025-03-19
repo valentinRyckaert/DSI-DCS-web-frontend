@@ -6,30 +6,30 @@
   </template>
   
 <script>
-  import axios from 'axios';
-  import { Chart } from 'chart.js';
+  
+  import { Chart } from 'chart.js'
   
   export default {
     data() {
       return {
         products: []
-      };
+      }
     },
     mounted() {
-      axios.get('http://localhost:3000/api/produits')
+      fetch('http://localhost:3000/api/produits')
         .then(response => {
-          this.products = response.data;
-          this.renderChart();
+          this.products = response.data
+          this.renderChart()
         })
         .catch(error => {
-          console.error("Erreur lors de la récupération des produits:", error);
-        });
+          console.error("Erreur lors de la récupération des produits:", error)
+        })
     },
     methods: {
       renderChart() {
-        const ctx = this.$refs.chartCanvas.getContext('2d');
-        const product1_1 = this.products.find(product => product.id === '1_1');
-        const product1_4 = this.products.find(product => product.id === '1_4');
+        const ctx = this.$refs.chartCanvas.getContext('2d')
+        const product1_1 = this.products.find(product => product.id === '1_1')
+        const product1_4 = this.products.find(product => product.id === '1_4')
   
         new Chart(ctx, {
           type: 'line',
@@ -50,9 +50,9 @@
               },
             ],
           },
-        });
+        })
       }
     }
-  };
+  }
 </script>
   

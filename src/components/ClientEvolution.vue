@@ -6,28 +6,28 @@
 </template>
   
 <script>
-  import axios from 'axios';
-  import { Chart } from 'chart.js';
+  
+  import { Chart } from 'chart.js'
   
   export default {
     data() {
       return {
         clients: []
-      };
+      }
     },
     mounted() {
-      axios.get('http://localhost:3000/api/clients')
+      fetch('http://localhost:3000/api/clients')
         .then(response => {
-          this.clients = response.data;
-          this.renderChart();
+          this.clients = response.data
+          this.renderChart()
         })
         .catch(error => {
-          console.error("Erreur lors de la récupération des clients:", error);
-        });
+          console.error("Erreur lors de la récupération des clients:", error)
+        })
     },
     methods: {
       renderChart() {
-        const ctx = this.$refs.chartCanvas.getContext('2d');
+        const ctx = this.$refs.chartCanvas.getContext('2d')
         new Chart(ctx, {
           type: 'line',
           data: {
@@ -39,9 +39,9 @@
               fill: false,
             })),
           },
-        });
+        })
       }
     }
-  };
+  }
 </script>
   
