@@ -11,10 +11,10 @@
             <button class="nav-link" aria-current="page" @click="activePage = 0">Top 10 Applications</button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" @click="activePage = 1">Features</button>
+            <button class="nav-link" @click="activePage = 1">Évolution clients</button>
           </li>
           <li class="nav-item">
-            <button class="nav-link" @click="activePage = 2">Pricing</button>
+            <button class="nav-link" @click="activePage = 2">évolution produits</button>
           </li>
         </ul>
       </div>
@@ -29,9 +29,9 @@
 
 <script setup>
 import { ref } from 'vue'
-import TopApplications from './components/TopApplications.vue'
-import ClientEvolution from './components/ClientEvolution.vue'
-import ProductEvolution from './components/ProductEvolution.vue'
+import TopApplications from './routes/TopApplications.vue'
+import ClientEvolution from './routes/ClientEvolution.vue'
+import ProductEvolution from './routes/ProductEvolution.vue'
 
 const activePage = ref(0)
 </script>
